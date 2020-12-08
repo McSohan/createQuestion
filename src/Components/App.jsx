@@ -4,13 +4,15 @@ import Question from "./Question";
 import QuestionType from "./QuestionType";
 import Footer from "./Footer";
 
-import MCQ from "./MCQ/MCQ.jsx"
+import MCQ from "./MCQ/MCQ.jsx";
+import FIB from "./FIB/FIB.jsx";
+import SubjectiveQuestion from "./Subjective/SubjectiveQuestion.jsx";
 
 function App ()
 {
     const[question, setQuestion] = React.useState({
         qBody: "",
-        qType: "MCQ"
+        qType: "MCQ",
     });
 
     function setQType (questionType)
@@ -40,8 +42,10 @@ function App ()
         <Header />
         <Question setQuestion={setQBody}/>
         <QuestionType changeQuestionType={setQType}/>
-        {/* Conditionally render the chosen question type */}
-        <MCQ />
+        {question.qType === "MCQ" &&  <MCQ />}
+        {question.qType === "FIB" && <FIB />}
+        {question.qType === "Sub" && <SubjectiveQuestion />}
+        {/* <SubmitButton /> */}
         <Footer />
         </div>
     );

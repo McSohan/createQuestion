@@ -26,6 +26,7 @@ function FIB() {
         return (
           <AcceptedAnswer
             key={index}
+            id ={index}
             content={AnswerItem}
             onDelete={deleteAnswer}
           />

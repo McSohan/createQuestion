@@ -14,7 +14,6 @@ function Question(props) {
   }
   return (
     <div>
-      <form>
         <textarea
           name="content"
           onChange={handleChange}
@@ -23,7 +22,6 @@ function Question(props) {
           required
           rows="5"
         />
-      </form>
     </div>
   );
 }

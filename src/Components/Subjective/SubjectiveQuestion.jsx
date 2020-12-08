@@ -2,11 +2,18 @@ import React, {useState} from "react";
 import Quuestion from "../Question";
 export default function SubjectiveQuestion (props)
 {
-    // const []
+    // const [modelAnswer, setModelAnswer] = useState({
+    //     available: false,
+    //     text: ""
+    // });
     // function textChange (event)
     // {
     //     const content = event.target.value;
     //     setQuestionText(content);
+    // }
+    // function setAvailable (event)
+    // {
+    //     const availableStatus = event.target.value;
     // }
     // return (
     //     <textarea

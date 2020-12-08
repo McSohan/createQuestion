@@ -7,7 +7,6 @@ function AcceptedAnswer(props) {
 
   return (
     <div className="note">
-      <h1>{props.id}</h1>
       <p>{props.content}</p>
       <button onClick={handleClick}>Delete Answer</button>
     </div>

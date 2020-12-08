@@ -18,13 +18,14 @@ function AddOption (props) {
     <div>
       <form>
         <textarea
-          name="content"
+          name="optionForm"
           onChange={handleChange}
           value={optionContent}
           placeholder="Add an option"
+          required
           rows="3"
         />
-        <button onClick={submitOption}>+</button>
+        <button type="submit" form="optionForm" onClick={submitOption}>+</button>
       </form>
     </div>
   );
