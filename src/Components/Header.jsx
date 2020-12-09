@@ -1,9 +1,9 @@
 import React from "react";
 
-function Header() {
+function Header(props) {
   return (
     <header>
-      <h1>Create Question</h1>
+      <h1>{props.heading}</h1>
     </header>
   );
 }

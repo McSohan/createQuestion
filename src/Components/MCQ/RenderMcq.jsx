@@ -13,6 +13,7 @@ export default function RenderMcq ()
             //this must not be zero, check - also store in SQL
             score : 0,
             category : "",
+            course: "",
             questionBody : "",
             //because this is a subjective question
             choices : [],
@@ -73,6 +74,16 @@ export default function RenderMcq ()
         }});
     }
 
+    //to select the course
+    function updateCourse (event)
+    {
+        let c = event.target.value;
+        setmcqDoc((prevDoc)=>{return {
+            ...prevDoc,
+            course: c
+        }});
+    }
+
 
     //to update the Score of the question
     function updateScore(event)
@@ -98,6 +109,17 @@ export default function RenderMcq ()
 
         <form onSubmit={submitQuestion}>
             <Question setQuestion = {setQuestionBody}/>
+            <label>
+            Course:
+            <select name="cars" id="cars" value={mcqDoc.course} onChange={updateCourse}>
+                <option value="">--</option>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+                {/* replace this with a dynamically rendered list */}
+            </select>
+            </label>
             <textarea 
                 name="category"
                 onChange={updateCategory}
@@ -120,10 +142,12 @@ export default function RenderMcq ()
                     />
                 );
             })}
+            <label>
             Correct Choice:
             <input type="number" id="correctChoice" name="correctChoice" min="0" value = {mcqDoc.correctChoice}
                  onChange = {updateCorrectChoice}
                 />
+            </label>
             <button type= "submit">Add Question</button>
         </form>
         

@@ -7,7 +7,7 @@ function MCQOption(props) {
 
   return (
     <div className="note">
-      <h1>{props.id}</h1>
+      <h6>{props.id}</h6>
       <p>{props.content}</p>
       <button onClick={handleClick}>Delete Option</button>
     </div>

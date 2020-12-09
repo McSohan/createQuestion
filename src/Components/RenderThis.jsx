@@ -1,4 +1,6 @@
+import CssBaseline from '@material-ui/core/CssBaseline';
 import React, {useState} from "react";
+
 import Header from "./Header";
 import Footer from "./Footer";
 import QuestionType from "./QuestionType";
@@ -28,8 +30,9 @@ function RenderThis ()
     // }
 
     return (
+        <CssBaseline>
         <div>
-        <Header />
+        <Header heading="Create Question"/>
         {/* <Question setQuestion={setQBody}/> */}
         <QuestionType changeQuestionType={setQType}/>
         {questionType === "MCQ" &&  <RenderMCQ />}
@@ -38,6 +41,7 @@ function RenderThis ()
         {/* <SubmitButton /> */}
         <Footer />
         </div>
+        </CssBaseline>
     );
 }
 
