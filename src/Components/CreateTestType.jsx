@@ -85,13 +85,7 @@ export default function TestType ()
             }
         });
 
-        // setTestType(prevDoc => {
-        //     return {
-        //         prevDoc.sections.filter((optionItem, index) => {
-        //       return (index !== id);
-        //     });
-        //   });
-        console.log(id);
+        //console.log(id);
 
         setTestType(prevDoc => {
             return {
