@@ -43,7 +43,7 @@ export default function SubjectiveBlock (props)
             <p>Max score: {props.score}</p><br></br>
             <label>
             Answer:
-            <input type="text" name="fibAnswer" value={studentAnswer.answerText} onChange={changeAnswerText}/>
+            <input type="text" name="subAnswer" value={studentAnswer.answerText} onChange={changeAnswerText}/>
             </label>
         </div>
     );

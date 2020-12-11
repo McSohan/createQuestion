@@ -1,5 +1,7 @@
-import React, {useState} from "react";
+/* jshint esversion: 6 */
 
+import React, {useState} from "react";
+import { Test, QuestionGroup, Question, Option } from "react-multiple-choice";
 
 export default function MCQBlock (props)
 {
@@ -15,47 +17,28 @@ export default function MCQBlock (props)
         }
     );
 
-    async function changeChoice(event)
+    function changeChoice(option, questionNumber)
     {
-        let v = event.target.value;
-        //console.log(v);
         setStudentAnswer((prevAnswer) => {
             return {
                 ...prevAnswer,
-                chosenOption: v
+                chosenOption: option.[questionNumber]
             }
         });
         //console.log(studentAnswer);
         //call some sort of an add answer function ?
     }
     return (
-        //this must return a block where the question is displayed and the student can answer
-        //the question
-        //assuming that props.question is a fill in the blank question that needs to be rendered
-
-        //props.questionNumber is associated with that question
-
-        <div>
-            <h4>{props.questionNumber}</h4>
-            <p>{props.questionBody}</p>
-            <p>Max score: {props.score}</p><br></br>
-            {/*Create some sort of a radio button list here*/}
-            
+        <Test onOptionSelect={selectedOption => changeChoice(selectedOption, props.questionNumber)}>
+          <QuestionGroup questionNumber={props.questionNumber}>
+            <Question>{props.questionBody}</Question>
+            <div>Additional information</div>
             {props.choices.map((choice, index) => {
                 return (
-                    <div>
-                    <input
-                        type="radio"
-                        name = "choice"
-                        id = {index}
-                        value = {choice}
-                        onChange = {changeChoice}
-                        checked = {index == studentAnswer.chosenOption}
-                    />
-                    <p>{choice}</p>
-                    </div>
-                );
+                <Option value={index}>{choice}</Option>);
             })}
-        </div>
+          </QuestionGroup>
+        </Test>
+        
     );
 }

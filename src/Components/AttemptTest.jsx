@@ -15,42 +15,12 @@ import dummyTest from "./AttemptTest/dummyTest";
     3. Add all the answers to the database upon submission - generate answerID
     4. Ensure that the test is mapped to the questionID and the answerID
 */
-
-
-//use a dummy array of questions to prototype
-
-
-
-// {
-//     type:
-//     questionAnswer: [questions]
-// }
-
-// [question]
-
-// questions.map(question, index) => {
-//     question.type === "MCQ" && MCQquestionAnswer(question)
-
-// } 
-
-
-// answers :
-// {
-//     answerID:
-//     answerType: <subjective>
-//     answerBody: {
-//         studentanswer (FIB, MCQ);
-
-//         (subjective)
-//         section:[{
-//             sectionType: text/image
-//             sectionBody: <text:"answer" /// image : >
-//         }]
-// }
-
-export default function RenderTest() {
+export default function RenderTest(props) {
 
     //what to put in the test state?
+
+    //need a function to get/generate the test
+    //either this, or we get an array of questions as props.questions props.testname props.testDuration
 
     console.log(dummyTest);
     return (
@@ -90,31 +60,7 @@ export default function RenderTest() {
 
                 })
             }
+            <Footer />
         </div>
     );
 }
-
-
-dummyTest.map((question, index) => {
-    {/* {question.questionType === "MCQ" &&  
-    <MCQBlock 
-        questionNumber = {index}
-        key = {index}
-        questionBody = {question.questionBody}
-        choices = {question.choices}
-    />} */}
-    {
-        (question.questionType) &&
-            <FIBBlock
-                questionNumber={index}
-                key={index}
-                questionBody={question.questionBody}
-            />
-    }
-    {/* {question.questionType === "Sub" && 
-        <SubjectiveBlock 
-            questionNumber = {index}
-            key = {index}
-            questionBody = {question.questionBody}
-        />} */}
-})

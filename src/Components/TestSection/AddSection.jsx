@@ -84,11 +84,11 @@ export default function Section(props)
             </label>
             <label>
                 Category:
-                <select name="cars" id="cars" value={sectionDoc.type} onChange={updateCategory}>
+                <select name="cars" id="cars" value={sectionDoc.category} onChange={updateCategory}>
                     <option value="">--</option>
-                    <option value="d1">dummy1</option>
-                    <option value="d2">dummy2</option>
-                    <option value="d3">dummy3</option>
+                    <option value="dummy1">dummy1</option>
+                    <option value="dummy2">dummy2</option>
+                    <option value="dummy3">dummy3</option>
                     {/* to add the category options here -- connecting with the database*/}
                 </select>
             </label>
