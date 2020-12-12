@@ -14,6 +14,7 @@ export default function TestType() {
             startTime: "00:00:01",
             duration: 1,
             course: "",
+            category: "",
             //the duration is in minutes
             maxScore: 0,
             //automatically compute max score from the sections added so far
@@ -121,7 +122,7 @@ export default function TestType() {
                 {/* remove section
             be able to add question type and category 
             from a list of categories */}
-                <label name="testDate">
+                
                     <label>
                         Course:
             <select name="course" id="course" value={testType.course} onChange={updateCourse}>
@@ -133,6 +134,7 @@ export default function TestType() {
                             {/* replace this with a dynamically rendered list */}
                         </select>
                     </label>
+                    <label name="testDate">
             Date:
             <input
                         type="date"

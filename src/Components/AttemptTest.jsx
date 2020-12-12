@@ -3,6 +3,7 @@ import MCQBlock from "./AttemptTest/MCQBlock";
 import SubjectiveBlock from "./AttemptTest/SubjectiveBlock";
 import FIBBlock from "./AttemptTest/FIBBlock";
 import Header from "./Header";
+import Footer from "./Footer";
 import dummyTest from "./AttemptTest/dummyTest";
 
 
