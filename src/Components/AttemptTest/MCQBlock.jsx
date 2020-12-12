@@ -1,6 +1,6 @@
 /* jshint esversion: 6 */
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Test, QuestionGroup, Question, Option } from "react-multiple-choice";
 
 export default function MCQBlock (props)
@@ -16,6 +16,12 @@ export default function MCQBlock (props)
             //this will be the option selected by the student
         }
     );
+
+    //this is to set an empty thing initially 
+    useEffect(()=>{
+        props.updateFunction (studentAnswer, props.questionNumber);
+    }, []);
+
 
     function changeChoice(option, questionNumber)
     {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
 //change this subjective block 
@@ -18,6 +18,10 @@ export default function SubjectiveBlock (props)
             //this will be the option selected by the student
         }
     );
+
+    useEffect(()=>{
+        props.updateFunction (studentAnswer, props.questionNumber);
+    }, []);
 
     function changeAnswerText(event)
     {
