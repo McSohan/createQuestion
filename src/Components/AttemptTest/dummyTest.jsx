@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 //this will be a list of questions which will resemble a test 
 const dummyTest = [
-    {questionType: "MCQ", score:1, questionBody: "Who is the father of the nation1", choices: ["MG", "SVP", "JN"]},
+    {questionType: "MCQ", score:1, questionBody: "Who is the father of the nation1", choices: ["Hello World", "SVP", "JN"]},
     {questionType: "FIB", score:2, questionBody: "Who is the father of the nation1"},
     {questionType: "MCQ", score:1, questionBody: "Who is the father of the nation2", choices: ["Msadfsd", "SsdfP", "JN"]},
     {questionType: "MCQ", score:1, questionBody: "Who is the father of the nation3", choices: ["MG", "SVP"]},

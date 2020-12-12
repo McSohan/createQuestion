@@ -28,6 +28,7 @@ export default function SubjectiveBlock (props)
                 answerText: a
             }
         });
+        props.updateFunction ({...studentAnswer, answerText: a}, props.questionNumber);
         //call some sort of an add answer function ?
     }
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import MCQBlock from "./AttemptTest/MCQBlock";
 import SubjectiveBlock from "./AttemptTest/SubjectiveBlock";
 import FIBBlock from "./AttemptTest/FIBBlock";
@@ -18,6 +18,34 @@ import dummyTest from "./AttemptTest/dummyTest";
 */
 export default function RenderTest(props) {
 
+    const [submission, setSubmission] = useState (
+        {
+            submissionID: "",
+            USN: "",
+            questions: [],//this is to be populated dynamically
+            answers: Array(dummyTest.length).fill({}) //this also needs to be populated dynamically
+
+        }
+    );
+
+    function onAnswerUpdate (answer, index)
+    {
+        let newAnswers = submission.answers;
+        newAnswers[index] = answer;
+        setSubmission((prevDoc) => {
+            return {
+                ...prevDoc, 
+                answers: newAnswers
+            }
+        });
+    }
+
+    function callChildFunction (event)
+    {
+        console.log("clicked");
+
+    }
+
     //what to put in the test state?
 
     //need a function to get/generate the test
@@ -34,6 +62,7 @@ export default function RenderTest(props) {
                     {
                         question.questionType === "MCQ" &&
                         <MCQBlock
+                            updateFunction = {onAnswerUpdate}
                             questionNumber={index}
                             key={index}
                             score = {question.score}
@@ -44,6 +73,7 @@ export default function RenderTest(props) {
                     {
                         (question.questionType === "FIB") &&
                             <FIBBlock
+                                updateFunction = {onAnswerUpdate}
                                 questionNumber={index}
                                 key={index}
                                 questionBody={question.questionBody}
@@ -52,6 +82,7 @@ export default function RenderTest(props) {
                     {
                         question.questionType === "Sub" &&
                         <SubjectiveBlock
+                            updateFunction = {onAnswerUpdate}
                             questionNumber={index}
                             key={index}
                             questionBody={question.questionBody}
@@ -61,6 +92,7 @@ export default function RenderTest(props) {
 
                 })
             }
+            <button onClick={callChildFunction} >Something </button>
             <Footer />
         </div>
     );

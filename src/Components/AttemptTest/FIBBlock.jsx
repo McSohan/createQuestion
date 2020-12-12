@@ -24,6 +24,7 @@ export default function FIBBlock (props)
                 answerContent: a
             }
         });
+        props.updateFunction ({...studentAnswer, answerContent: a}, props.questionNumber);
         //call some sort of an add answer function ?
     }
     return (

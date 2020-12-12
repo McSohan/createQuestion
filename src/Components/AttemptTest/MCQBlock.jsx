@@ -25,6 +25,7 @@ export default function MCQBlock (props)
                 chosenOption: option.[questionNumber]
             }
         });
+        props.updateFunction ({...studentAnswer, chosenOption: option.[questionNumber]}, questionNumber);
         //console.log(studentAnswer);
         //call some sort of an add answer function ?
     }
